@@ -11,7 +11,7 @@ body {
   color: #333;
   background-color: #f9f9f9;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* vertical orientation */
   min-height: 100vh;
 }
 
@@ -234,7 +234,7 @@ header p {
   }
   
   .timeline-card {
-    flex: 0 0 280px;
+    flex: 0 0 auto; /* remove fixed width */
   }
   
   .card-year {
@@ -247,5 +247,11 @@ header p {
   
   .card-content p {
     font-size: 0.9em;
+  }
+  
+  .timeline-scroll {
+    flex-direction: column;
+    overflow-x: auto; /* change to auto */
+    overflow-y: auto;
   }
 }
