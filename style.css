@@ -1,1 +1,251 @@
-/* Add your CSS here */
+/* ===== GENERAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== HEADER SECTION ===== */
+header {
+  background: linear-gradient(135deg, #0071c5 0%, #0050a0 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+header div {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+header p {
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== TIMELINE CONTAINER ===== */
+.timeline-container {
+  /* Use flexbox to organize timeline scroll area */
+  display: flex;
+  flex-direction: column;
+  
+  /* Fill the entire viewport height */
+  min-height: 100vh;
+  
+  /* Make it take up full width */
+  width: 100%;
+  background-color: #f5f5f5;
+  
+  /* Prevent overflow */
+  overflow: hidden;
+}
+
+/* ===== TIMELINE SCROLL (Horizontal Scroll Area) ===== */
+.timeline-scroll {
+  /* Use flexbox to arrange cards horizontally */
+  display: flex;
+  
+  /* Allow the container to scroll horizontally */
+  overflow-x: auto;
+  
+  /* Remove vertical scrollbar from appearing */
+  overflow-y: hidden;
+  
+  /* Add padding to give cards breathing room */
+  padding: 20px;
+  
+  /* Make cards stay on one line */
+  flex-wrap: nowrap;
+  
+  /* Smooth scrolling on supported browsers */
+  scroll-behavior: smooth;
+  
+  /* Fill the available space inside timeline-container */
+  flex: 1;
+  
+  /* Center cards vertically */
+  align-items: center;
+  
+  /* Enable scroll snap on horizontal axis */
+  scroll-snap-type: x mandatory;
+}
+
+/* Style the scrollbar for browsers that support it */
+.timeline-scroll::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline-scroll::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 5px;
+}
+
+.timeline-scroll::-webkit-scrollbar-thumb:hover {
+  background: #0050a0;
+}
+
+/* ===== TIMELINE CARDS ===== */
+.timeline-card {
+  /* Set a fixed width so cards don't shrink */
+  flex: 0 0 350px;
+  
+  /* Add space between cards */
+  margin: 0 15px;
+  
+  /* Card styling */
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Smooth transition for hover effects */
+  transition: all 0.3s ease;
+  
+  /* Make card a flex container for image and content */
+  display: flex;
+  flex-direction: column;
+  
+  /* Limit card height */
+  min-height: 500px;
+  max-height: 600px;
+  
+  /* Add overflow for content inside card */
+  overflow: hidden;
+  
+  /* Snap each card to center when scrolling stops */
+  scroll-snap-align: center;
+  
+  /* Ensure the card snaps (don't allow skipping) */
+  scroll-snap-stop: always;
+}
+
+/* Hover effect on cards */
+.timeline-card:hover {
+  /* Lift the card up slightly */
+  transform: translateY(-10px);
+  
+  /* Add a stronger shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== CARD IMAGES ===== */
+.card-image {
+  /* Make image fill the card width */
+  width: 100%;
+  
+  /* Set a fixed height for consistency */
+  height: 200px;
+  
+  /* Fit the image inside without distorting it */
+  object-fit: cover;
+  
+  /* Smooth hover effect */
+  transition: transform 0.3s ease;
+}
+
+/* Scale image slightly on card hover */
+.timeline-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* ===== CARD CONTENT ===== */
+.card-content {
+  /* Add padding inside the card */
+  padding: 20px;
+  
+  /* Allow content to fill remaining space */
+  flex: 1;
+  
+  /* Add space between text elements */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-year {
+  /* Style the year */
+  font-size: 2em;
+  color: #0071c5;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-title {
+  /* Style the title */
+  font-size: 1.3em;
+  color: #333;
+  margin: 0;
+  border-bottom: 2px solid #0071c5;
+  padding-bottom: 8px;
+}
+
+.card-content p {
+  /* Style the description text */
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== SCROLL INSTRUCTIONS ===== */
+.scroll-instructions {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 1em;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* For smaller screens, adjust card width */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  
+  header p {
+    font-size: 1em;
+  }
+  
+  .timeline-card {
+    flex: 0 0 280px;
+  }
+  
+  .card-year {
+    font-size: 1.6em;
+  }
+  
+  .card-title {
+    font-size: 1.1em;
+  }
+  
+  .card-content p {
+    font-size: 0.9em;
+  }
+}
